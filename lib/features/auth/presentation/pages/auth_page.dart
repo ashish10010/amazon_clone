@@ -1,3 +1,4 @@
+import 'package:amazon_clone/constants/global_variables.dart';
 import 'package:amazon_clone/features/auth/presentation/widgets/auth_form.dart';
 import 'package:amazon_clone/features/auth/presentation/widgets/auth_options.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,7 @@ class _AuthPageState extends State<AuthPage> {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'Welcome',
@@ -47,6 +49,9 @@ class _AuthPageState extends State<AuthPage> {
               ),
             ),
             AuthOptions(
+                tileColor: _auth == Auth.signup
+                    ? GlobalVariables.backgroundColor
+                    : GlobalVariables.greyBackgroundCOlor,
                 title: 'Create Account',
                 value: Auth.signup,
                 groupValue: _auth,
@@ -80,6 +85,9 @@ class _AuthPageState extends State<AuthPage> {
                 buttonText: 'Sign Up.',
               ),
             AuthOptions(
+              tileColor: _auth == Auth.signin
+                  ? GlobalVariables.backgroundColor
+                  : GlobalVariables.greyBackgroundCOlor,
               title: 'Sign In',
               value: Auth.signin,
               groupValue: _auth,

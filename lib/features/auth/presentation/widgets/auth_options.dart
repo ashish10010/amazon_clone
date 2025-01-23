@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AuthOptions extends StatelessWidget {
+  final Color tileColor;
   final String title;
   final Enum value;
   final Enum groupValue;
   final ValueChanged<Enum?> onChanged;
   const AuthOptions({
     super.key,
+    required this.tileColor,
     required this.title,
     required this.value,
     required this.groupValue,
