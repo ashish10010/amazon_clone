@@ -16,16 +16,6 @@ class CustomTextfield extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
         hintText: hinttext,
-        border: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.black38,
-          ),
-        ),
-        enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.black38,
-          ),
-        ),
       ),
       validator: (value) {
         if (value == null) {

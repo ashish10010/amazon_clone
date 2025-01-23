@@ -1,3 +1,4 @@
+import 'package:amazon_clone/constants/global_variables.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -18,9 +19,14 @@ class CustomButton extends StatelessWidget {
           double.infinity,
           50,
         ),
+        backgroundColor: GlobalVariables.secondaryColor,
+        foregroundColor: GlobalVariables.secondaryColor,
       ),
       child: Text(
         buttonText,
+        style: TextStyle(
+          color: Colors.black,
+        ),
       ),
     );
   }
