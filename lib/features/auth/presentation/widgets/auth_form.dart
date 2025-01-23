@@ -18,6 +18,7 @@ class AuthForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final logger = Logger();
     return Container(
       padding: const EdgeInsets.all(8.0),
       color: GlobalVariables.backgroundColor,
@@ -29,13 +30,17 @@ class AuthForm extends StatelessWidget {
           child: Column(
             children: [
               ...fields.map(
-                (field) => Padding(
-                  padding: const EdgeInsets.only(bottom: 10.0),
-                  child: CustomTextfield(
-                    hinttext: field['hinttext'] ?? '',
-                    controller: field['controller'] ?? TextEditingController(),
-                  ),
-                ),
+                (field) {
+                  // logger.d('Printing Fields .......Field: $field');
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: CustomTextfield(
+                      hinttext: field['hinttext'] ?? '',
+                      controller:
+                          field['controller'] ?? TextEditingController(),
+                    ),
+                  );
+                },
               ),
               CustomButton(
                 buttonText: buttonText,

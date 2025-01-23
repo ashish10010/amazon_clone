@@ -60,15 +60,15 @@ class _AuthPageState extends State<AuthPage> {
                 formKey: _signupFormKey,
                 fields: [
                   {
-                    'hintText': 'Name',
+                    'hinttext': 'Name',
                     'controller': _nameController,
                   },
                   {
-                    'hintText': 'Email',
+                    'hinttext': 'Email',
                     'controller': _emailcontroller,
                   },
                   {
-                    'hintText': 'Password',
+                    'hinttext': 'Password',
                     'controller': _passwordController,
                   },
                 ],
@@ -94,11 +94,11 @@ class _AuthPageState extends State<AuthPage> {
                 formKey: _signinFormKey,
                 fields: [
                   {
-                    'hintText': 'Email',
+                    'hinttext': 'Email',
                     'controller': _emailcontroller,
                   },
                   {
-                    'hintText': 'Password',
+                    'hinttext': 'Password',
                     'controller': _passwordController,
                   }
                 ],

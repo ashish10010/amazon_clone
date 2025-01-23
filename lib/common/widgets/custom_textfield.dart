@@ -12,6 +12,8 @@ class CustomTextfield extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final logger = Logger();
+    // logger.d('Recieved hint-text $hinttext');
     return TextFormField(
       controller: controller,
       decoration: InputDecoration(
