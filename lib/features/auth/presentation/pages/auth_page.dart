@@ -1,6 +1,7 @@
 import 'package:amazon_clone/constants/global_variables.dart';
 import 'package:amazon_clone/features/auth/presentation/widgets/auth_form.dart';
 import 'package:amazon_clone/features/auth/presentation/widgets/auth_options.dart';
+import 'package:amazon_clone/features/auth/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 enum Auth {
@@ -18,10 +19,9 @@ class AuthPage extends StatefulWidget {
 
 class _AuthPageState extends State<AuthPage> {
   Auth _auth = Auth.signup;
-
   final _signupFormKey = GlobalKey<FormState>();
   final _signinFormKey = GlobalKey<FormState>();
-
+  final AuthService authService = AuthService();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailcontroller = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -32,6 +32,14 @@ class _AuthPageState extends State<AuthPage> {
     _emailcontroller.dispose();
     _passwordController.dispose();
     super.dispose();
+  }
+
+  void signUpUser() {
+    authService.signUpUser(
+        context: context,
+        email: _emailcontroller.text,
+        name: _nameController.text,
+        password: _passwordController.text);
   }
 
   @override
@@ -79,7 +87,7 @@ class _AuthPageState extends State<AuthPage> {
                 ],
                 onSubmit: () {
                   if (_signupFormKey.currentState!.validate()) {
-                    //handle sign up logics.
+                    signUpUser();
                   }
                 },
                 buttonText: 'Sign Up.',

@@ -20,8 +20,8 @@ class CustomTextfield extends StatelessWidget {
         hintText: hinttext,
       ),
       validator: (value) {
-        if (value == null) {
-          return ('The fields cannot be empty!');
+        if (value == null || value.isEmpty) {
+          return 'Enter your $hinttext';
         }
         return null;
       },
