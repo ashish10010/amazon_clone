@@ -22,6 +22,10 @@ const userSchema = mongoose.Schema({
   password: {
     required: true,
     type: String,
+    validate: (value) => {
+      return value.length > 6;
+    },
+    message: "Password must be greater than 6 characters!",
   },
   address: {
     type: String,
