@@ -42,6 +42,13 @@ class _AuthPageState extends State<AuthPage> {
         password: _passwordController.text);
   }
 
+  void signInUser() {
+    authService.signInUser(
+        context: context,
+        email: _emailcontroller.text,
+        password: _passwordController.text);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,7 +127,7 @@ class _AuthPageState extends State<AuthPage> {
                 ],
                 onSubmit: () {
                   if (_signinFormKey.currentState!.validate()) {
-                    // signUpUser();
+                    signInUser();
                   }
                 },
                 buttonText: 'Sign In.',
