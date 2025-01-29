@@ -120,7 +120,7 @@ class _AuthPageState extends State<AuthPage> {
                 ],
                 onSubmit: () {
                   if (_signinFormKey.currentState!.validate()) {
-                    //handle sign up logics.
+                    // signUpUser();
                   }
                 },
                 buttonText: 'Sign In.',
