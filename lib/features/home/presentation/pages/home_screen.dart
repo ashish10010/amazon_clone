@@ -2,15 +2,14 @@ import 'package:amazon_clone/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class HomeScr extends StatefulWidget {
-  static route() => MaterialPageRoute(builder: (context) => HomeScr());
-  const HomeScr({super.key});
-
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+  static const String routeName = '/home';
   @override
-  State<HomeScr> createState() => _HomeScrState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScrState extends State<HomeScr> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserProvider>(context).user;
