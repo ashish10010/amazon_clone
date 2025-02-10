@@ -1,6 +1,7 @@
 import 'package:amazon_clone/constants/global_variables.dart';
 import 'package:amazon_clone/features/home/presentation/widgets/address_box.dart';
 import 'package:amazon_clone/features/home/presentation/widgets/carousel_images.dart';
+import 'package:amazon_clone/features/home/presentation/widgets/deal_of_the_day.dart';
 import 'package:amazon_clone/features/home/presentation/widgets/top_categories.dart';
 import 'package:flutter/material.dart';
 
@@ -89,21 +90,24 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        body: Column(
-          children: const [
-            //address box
-            AddressBox(),
-            SizedBox(
-              height: 10,
-            ),
-            //top categories
-            TopCategories(),
-            SizedBox(
-              height: 10,
-            ),
-            //carousel section
-            CarouselImages(),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: const [
+              //address box
+              AddressBox(),
+              SizedBox(
+                height: 10,
+              ),
+              //top categories
+              TopCategories(),
+              SizedBox(
+                height: 10,
+              ),
+              //carousel section
+              CarouselImages(),
+              DealOfTheDay(),
+            ],
+          ),
         ));
   }
 }
