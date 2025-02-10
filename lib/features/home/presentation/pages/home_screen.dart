@@ -1,5 +1,6 @@
 import 'package:amazon_clone/constants/global_variables.dart';
 import 'package:amazon_clone/features/home/presentation/widgets/address_box.dart';
+import 'package:amazon_clone/features/home/presentation/widgets/top_categories.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -94,6 +95,8 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 10,
             ),
+            //top categories
+            TopCategories(),
           ],
         ));
   }
