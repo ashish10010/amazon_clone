@@ -1,4 +1,5 @@
 import 'package:amazon_clone/constants/global_variables.dart';
+import 'package:amazon_clone/features/home/presentation/widgets/address_box.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,76 +13,88 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50),
-        child: AppBar(
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: GlobalVariables.appBarGradient,
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(60),
+          child: AppBar(
+            flexibleSpace: Container(
+              decoration: const BoxDecoration(
+                gradient: GlobalVariables.appBarGradient,
+              ),
             ),
-          ),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Container(
-                  height: 42,
-                  margin: const EdgeInsets.only(left: 15),
-                  child: Material(
-                    borderRadius: BorderRadius.circular(7),
-                    elevation: 1,
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.white,
-                        contentPadding: const EdgeInsets.only(top: 10),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(7),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Container(
+                    height: 42,
+                    margin: const EdgeInsets.only(left: 15),
+                    child: Material(
+                      borderRadius: BorderRadius.circular(7),
+                      elevation: 1,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          contentPadding: const EdgeInsets.only(top: 10),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(7),
+                            ),
+                            borderSide: BorderSide.none,
                           ),
-                          borderSide: BorderSide.none,
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(7),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(7),
+                            ),
+                            borderSide:
+                                BorderSide(color: Colors.black38, width: 1),
                           ),
-                          borderSide:
-                              BorderSide(color: Colors.black38, width: 1),
-                        ),
-                        prefixIcon: InkWell(
-                          onTap: () {},
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 6.0),
-                            child: Icon(
-                              Icons.search,
-                              color: Colors.black,
-                              size: 23,
+                          prefixIcon: InkWell(
+                            onTap: () {},
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 6.0),
+                              child: Icon(
+                                Icons.search,
+                                color: Colors.black,
+                                size: 23,
+                              ),
                             ),
                           ),
-                        ),
-                        hintText: 'Search Amazon...',
-                        hintStyle: const TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 17,
+                          hintText: 'Search Amazon...',
+                          hintStyle: const TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 17,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(
-                width: 8,
-              ),
-              Icon(
-                Icons.mic,
-              )
-            ],
+                SizedBox(
+                  width: 8,
+                ),
+                Container(
+                  color: Colors.transparent,
+                  height: 42,
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Icon(
+                    Icons.mic,
+                    size: 25,
+                    color: Colors.black,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
-      ),
-      body: Center(
-        child: Text(''),
-      ),
-    );
+        body: Column(
+          children: const [
+            //address box
+            AddressBox(),
+            SizedBox(
+              height: 10,
+            ),
+          ],
+        ));
   }
 }
