@@ -50,19 +50,50 @@ class _DealOfTheDayState extends State<DealOfTheDay> {
             overflow: TextOverflow.ellipsis,
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Image.network(
-                'https://unsplash.com/photos/a-black-and-white-photo-of-a-bathroom-sink-I0ySJXR9rMQ',),
-            Image.network(
-                'https://unsplash.com/photos/a-table-and-chairs-in-a-room-with-a-picture-on-the-wall-x-Y3MrcgYFE'),
-            Image.network(
-                'https://images.unsplash.com/photo-1738676524296-364cf18900a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE0fE04alZiTGJUUndzfHxlbnwwfHx8fHw%3D'),
-            Image.network(
-                'https://plus.unsplash.com/premium_photo-1734543932100-96cf06f153c3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE5fE04alZiTGJUUndzfHxlbnwwfHx8fHw%3D'),
-          ],
-        )
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.network(
+                'https://images.unsplash.com/photo-1738676524296-364cf18900a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE0fE04alZiTGJUUndzfHxlbnwwfHx8fHw%3D',
+                fit: BoxFit.fitWidth,
+                width: 100,
+                height: 100,
+              ),
+              Image.network(
+                'https://plus.unsplash.com/premium_photo-1734543932100-96cf06f153c3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE5fE04alZiTGJUUndzfHxlbnwwfHx8fHw%3D',
+                fit: BoxFit.fitWidth,
+                width: 100,
+                height: 100,
+              ),
+              Image.network(
+                'https://images.unsplash.com/photo-1738676524296-364cf18900a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE0fE04alZiTGJUUndzfHxlbnwwfHx8fHw%3D',
+                fit: BoxFit.fitWidth,
+                width: 100,
+                height: 100,
+              ),
+              Image.network(
+                'https://plus.unsplash.com/premium_photo-1734543932100-96cf06f153c3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE5fE04alZiTGJUUndzfHxlbnwwfHx8fHw%3D',
+                fit: BoxFit.fitWidth,
+                width: 100,
+                height: 100,
+              ),
+            ],
+          ),
+        ),
+        Container(
+          padding: const EdgeInsets.symmetric(
+            vertical: 15,
+          ).copyWith(left: 15),
+          alignment: Alignment.topLeft,
+          child: Text(
+            'See all deals',
+            style: TextStyle(
+              color: Colors.cyan[800],
+            ),
+          ),
+        ),
       ],
     );
   }
