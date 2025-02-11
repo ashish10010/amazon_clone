@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class CustomTextfield extends StatelessWidget {
   final String hinttext;
   final TextEditingController controller;
+  final int maxLines;
 
   const CustomTextfield({
     super.key,
     required this.hinttext,
     required this.controller,
+    this.maxLines = 1,
   });
 
   @override
@@ -25,6 +27,7 @@ class CustomTextfield extends StatelessWidget {
         }
         return null;
       },
+      maxLines: maxLines,
     );
   }
 }

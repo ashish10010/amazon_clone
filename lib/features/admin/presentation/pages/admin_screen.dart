@@ -140,6 +140,7 @@ class _AdminScreenState extends State<AdminScreen> {
           ),
         ],
       ),
+      body: pages[_page],
     );
   }
 }
