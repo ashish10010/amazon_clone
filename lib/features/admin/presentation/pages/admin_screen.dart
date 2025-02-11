@@ -1,3 +1,4 @@
+import 'package:amazon_clone/features/admin/presentation/pages/posts_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../../constants/global_variables.dart';
 
@@ -14,18 +15,15 @@ class _AdminScreenState extends State<AdminScreen> {
   double bottomBarBorderWidth = 5;
 
   List<Widget> pages = [
-    const Center(
-      child: Text(
-        'Admin Screen , Post Page',
-      ),
-    ),
-    //another
+    //posts
+    const PostsScreen(),
+    //analytics
     const Center(
       child: Text(
         'Admin Screen , Analytics page',
       ),
     ),
-    //next
+    //orders
     const Center(
       child: Text(
         'Admin Screen , Cart Page',
@@ -80,7 +78,7 @@ class _AdminScreenState extends State<AdminScreen> {
         iconSize: 28,
         onTap: updatePage,
         items: [
-          //home
+          //Posts
           BottomNavigationBarItem(
             icon: Container(
               width: bottomBarWidth,
@@ -100,8 +98,7 @@ class _AdminScreenState extends State<AdminScreen> {
             ),
             label: '',
           ),
-
-          //Account
+          //Analytics
           BottomNavigationBarItem(
             icon: Container(
               width: bottomBarWidth,
