@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../constants/global_variables.dart';
 
 class AddProductScreen extends StatefulWidget {
+  static const String routeName = '/add-product';
   const AddProductScreen({super.key});
 
   @override
