@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:amazon_clone/constants/utils.dart';
+import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:flutter/material.dart';
 
 class AdminServices {
@@ -13,7 +14,9 @@ class AdminServices {
     required String category,
     required List<File> images,
   }) async {
-    try {} catch (e) {
+    try {
+      final cloudinary = CloudinaryPublic('dm88qwpcr', 'cesyvywm');
+    } catch (e) {
       showSnackBar(context, e.toString());
     }
   }
