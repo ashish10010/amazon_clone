@@ -17,6 +17,22 @@ class AdminServices {
   }) async {
     try {
       final cloudinary = CloudinaryPublic('dm88qwpcr', 'cesyvywm');
+      List<String> imageUrls = [];
+
+      for (int i = 0; i < images.length; i++) {
+        CloudinaryResponse res = await cloudinary.uploadFile(
+          CloudinaryFile.fromFile(images[i].path, folder: name),
+        );
+        imageUrls.add(res.secureUrl);
+      }
+      Product product = Product(
+        name: name,
+        description: description,
+        quantity: quantity,
+        images: imageUrls,
+        category: category,
+        price: price,
+      );
     } catch (e) {
       showSnackBar(context, e.toString());
     }
