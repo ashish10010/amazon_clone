@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:amazon_clone/common/widgets/custom_button.dart';
 import 'package:amazon_clone/common/widgets/custom_textfield.dart';
 import 'package:amazon_clone/constants/utils.dart';
+import 'package:amazon_clone/features/admin/services/admin_services.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
@@ -23,8 +24,11 @@ class _AddProductScreenState extends State<AddProductScreen> {
   final TextEditingController priceController = TextEditingController();
   final TextEditingController quantityController = TextEditingController();
 
+  final AdminServices adminServices = AdminServices();
   String category = 'Mobiles';
   List<File> images = [];
+
+  final _addProductFormKey = GlobalKey<FormState>();
   @override
   void dispose() {
     productNameController.dispose();
@@ -41,6 +45,19 @@ class _AddProductScreenState extends State<AddProductScreen> {
     'Books',
     'Fashion',
   ];
+
+  void sellProduct() async {
+    if (_addProductFormKey.currentState!.validate() && images.isNotEmpty) {
+      adminServices.sellProduct(
+          context: context,
+          name: productNameController.text,
+          description: descriptionController.text,
+          price: double.parse(priceController.text),
+          quantity: double.parse(quantityController.text),
+          category: category,
+          images: images);
+    }
+  }
 
   void selectImages() async {
     var res = await pickImages();
@@ -74,6 +91,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.75,
               child: Form(
+                key: _addProductFormKey,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 10,
@@ -188,7 +206,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
               ),
               child: CustomButton(
                 buttonText: 'Sell',
-                ontap: () {},
+                ontap: sellProduct,
               ),
             ),
           ],
