@@ -166,7 +166,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                       const SizedBox(height: 10),
                       CustomTextfield(
                         hinttext: 'Price',
-                        controller: quantityController,
+                        controller: priceController,
                       ),
                       const SizedBox(height: 10),
                       CustomTextfield(
