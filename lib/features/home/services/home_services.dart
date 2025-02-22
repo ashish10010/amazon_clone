@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 
 class HomeServices {
   Future<List<Product>> fetchCategoryProducts(
-      {required BuildContext context, required String Category}) async {
+      {required BuildContext context, required String category}) async {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
     List<Product> productList = [];
     try {
