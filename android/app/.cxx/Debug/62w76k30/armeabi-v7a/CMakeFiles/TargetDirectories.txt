@@ -1,0 +1,2 @@
+C:/Users/aashish/Desktop/app/amazon_clone/android/app/.cxx/Debug/62w76k30/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/aashish/Desktop/app/amazon_clone/android/app/.cxx/Debug/62w76k30/armeabi-v7a/CMakeFiles/rebuild_cache.dir
