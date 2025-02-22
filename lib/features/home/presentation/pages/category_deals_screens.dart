@@ -48,6 +48,22 @@ class _CategoryDealsScreensState extends State<CategoryDealsScreens> {
                 fontSize: 20,
               ),
             ),
+          ),
+          SizedBox(
+            height: 170,
+            child: GridView.builder(
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.only(
+                  left: 15,
+                ),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 1,
+                    childAspectRatio: 1.4,
+                    mainAxisSpacing: 10),
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return Text('Hello!');
+                }),
           )
         ],
       ),
