@@ -3,6 +3,7 @@ import 'package:amazon_clone/features/home/presentation/widgets/address_box.dart
 import 'package:amazon_clone/features/home/presentation/widgets/carousel_images.dart';
 import 'package:amazon_clone/features/home/presentation/widgets/deal_of_the_day.dart';
 import 'package:amazon_clone/features/home/presentation/widgets/top_categories.dart';
+import 'package:amazon_clone/features/search/screens/search_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,6 +14,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  void _navigateToSearchScreen(String query) {
+    Navigator.pushNamed(
+      context,
+      SearchScreen.routeName,
+      arguments: query,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(7),
                       elevation: 1,
                       child: TextFormField(
+                        onFieldSubmitted: _navigateToSearchScreen,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
