@@ -1,21 +1,41 @@
+import 'package:amazon_clone/common/widgets/loader.dart';
 import 'package:amazon_clone/constants/global_variables.dart';
 import 'package:amazon_clone/features/home/presentation/widgets/address_box.dart';
-import 'package:amazon_clone/features/home/presentation/widgets/carousel_images.dart';
-import 'package:amazon_clone/features/home/presentation/widgets/deal_of_the_day.dart';
-import 'package:amazon_clone/features/home/presentation/widgets/top_categories.dart';
-import 'package:amazon_clone/features/search/screens/search_screen.dart';
+import 'package:amazon_clone/features/search/services/search_services.dart';
+import 'package:amazon_clone/features/search/widgets/searched_products.dart';
+import 'package:amazon_clone/models/product.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-  static const String routeName = '/home';
+class SearchScreen extends StatefulWidget {
+  static const String routeName = '/search-screen';
+  final String searchQuery;
+  const SearchScreen({
+    required this.searchQuery,
+    super.key,
+  });
+
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<SearchScreen> createState() => _SearchScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  
-  void _navigateToSearchScreen(String query) {
+class _SearchScreenState extends State<SearchScreen> {
+  List<Product>? products;
+  final SearchServices searchServices = SearchServices();
+  @override
+  void initState() {
+    super.initState();
+    fetchSearchProduct();
+  }
+
+  fetchSearchProduct() async {
+    products = await searchServices.fetchSearchedProduct(
+      context: context,
+      searchQuery: widget.searchQuery,
+    );
+    setState(() {});
+  }
+
+  void navigateToSearchScreen(String query) {
     Navigator.pushNamed(
       context,
       SearchScreen.routeName,
@@ -45,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(7),
                       elevation: 1,
                       child: TextFormField(
-                        onFieldSubmitted: _navigateToSearchScreen,
+                        onFieldSubmitted: navigateToSearchScreen,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
@@ -101,24 +121,23 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: const [
-              //address box
-              AddressBox(),
-              SizedBox(
-                height: 10,
-              ),
-              //top categories
-              TopCategories(),
-              SizedBox(
-                height: 10,
-              ),
-              //carousel section
-              CarouselImages(),
-              DealOfTheDay(),
-            ],
-          ),
-        ));
+        body: products == null
+            ? const Loader()
+            : Column(
+                children: [
+                  const AddressBox(),
+                  const SizedBox(height: 10),
+                  Expanded(
+                    child: ListView.builder(
+                      itemBuilder: (context, index) {
+                        return SearchedProducts(
+                          product: products![index],
+                        );
+                      },
+                      itemCount: products!.length,
+                    ),
+                  )
+                ],
+              ));
   }
 }

@@ -103,6 +103,16 @@ class _CategoryDealsScreensState extends State<CategoryDealsScreens> {
                                 ),
                               ),
                             ),
+                          ),
+                          Container(
+                            alignment: Alignment.topLeft,
+                            padding: const EdgeInsets.only(
+                                left: 0, right: 15, top: 5),
+                            child: Text(
+                              product.name,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           )
                         ],
                       );
