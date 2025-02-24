@@ -14,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  
   void _navigateToSearchScreen(String query) {
     Navigator.pushNamed(
       context,
