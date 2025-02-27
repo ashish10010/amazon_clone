@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   final String buttonText;
   final VoidCallback ontap;
+  final Color? color;
   const CustomButton({
     super.key,
     required this.buttonText,
     required this.ontap,
+    this.color,
   });
 
   @override
@@ -19,14 +21,11 @@ class CustomButton extends StatelessWidget {
           double.infinity,
           50,
         ),
-        backgroundColor: GlobalVariables.secondaryColor,
-        foregroundColor: GlobalVariables.secondaryColor,
+        backgroundColor: color,
+        foregroundColor: color == null ? Colors.white : Colors.black,
       ),
       child: Text(
         buttonText,
-        style: TextStyle(
-          color: Colors.black,
-        ),
       ),
     );
   }
