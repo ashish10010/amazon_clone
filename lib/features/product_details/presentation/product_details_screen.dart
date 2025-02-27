@@ -129,7 +129,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   return Builder(
                     builder: (BuildContext context) => Image.network(
                       i,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     ),
                   );
                 },
@@ -207,6 +207,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               ),
             ),
             RatingBar.builder(
+              initialRating: 0,
+              minRating: 1,
+              direction: Axis.horizontal,
+              allowHalfRating: true,
+              itemCount: 5,
+              itemPadding: const EdgeInsets.symmetric(horizontal: 4),
               itemBuilder: (context, _) => const Icon(
                 Icons.stars,
                 color: GlobalVariables.secondaryColor,
