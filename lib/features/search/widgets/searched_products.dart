@@ -11,6 +11,14 @@ class SearchedProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double totalRating = 0;
+    for (int i = 0; i < product.rating!.length; i++) {
+      totalRating += product.rating![i].rating;
+    }
+    double avgRating = 0;
+    if (totalRating != 0) {
+      avgRating = totalRating / product.rating!.length;
+    }
     return Column(
       children: [
         Container(
@@ -19,7 +27,7 @@ class SearchedProducts extends StatelessWidget {
             children: [
               Image.network(
                 product.images[0],
-                fit: BoxFit.fitHeight,
+                fit: BoxFit.contain,
                 height: 135,
                 width: 135,
               ),
@@ -43,7 +51,7 @@ class SearchedProducts extends StatelessWidget {
                       top: 5,
                     ),
                     child: Stars(
-                      ratings: 4,
+                      ratings: avgRating,
                     ),
                   ),
                   Container(
