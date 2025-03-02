@@ -1,5 +1,6 @@
 import 'package:amazon_clone/common/widgets/custom_button.dart';
 import 'package:amazon_clone/constants/global_variables.dart';
+import 'package:amazon_clone/features/cart/widgets/cart_product.dart';
 import 'package:amazon_clone/features/cart/widgets/cart_subtotal.dart';
 import 'package:amazon_clone/features/home/presentation/widgets/address_box.dart';
 import 'package:flutter/material.dart';
@@ -127,7 +128,9 @@ class _CartScreenState extends State<CartScreen> {
               itemCount: user.cart.length,
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return Center();
+                return CartProduct(
+                  index: index,
+                );
               },
             ),
           ],
