@@ -2,6 +2,7 @@ import 'package:amazon_clone/common/widgets/custom_textfield.dart';
 import 'package:amazon_clone/constants/global_variables.dart';
 import 'package:amazon_clone/providers/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:pay/pay.dart';
 import 'package:provider/provider.dart';
 
 class AddressScreen extends StatefulWidget {
@@ -27,6 +28,11 @@ class _AddressScreenState extends State<AddressScreen> {
     townCityController.dispose();
     super.dispose();
   }
+
+  void onApplePayResult(res) {}
+  void onGooglePayResult(res) {}
+
+  List<PaymentItem> paymentItems = [];
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +101,32 @@ class _AddressScreenState extends State<AddressScreen> {
                       hinttext: 'Town/City',
                       controller: townCityController,
                     ),
+                    const SizedBox(height: 10),
                   ],
+                ),
+              ),
+              ApplePayButton(
+                margin: const EdgeInsets.only(top: 15),
+                height: 50,
+                width: double.infinity,
+                style: ApplePayButtonStyle.whiteOutline,
+                type: ApplePayButtonType.buy,
+                paymentConfiguration:
+                    PaymentConfiguration.fromJsonString('applepay.json'),
+                onPaymentResult: onApplePayResult,
+                paymentItems: paymentItems,
+              ),
+              const SizedBox(height: 10),
+              GooglePayButton(
+                height: 50,
+                width: double.infinity,
+                margin: const EdgeInsets.only(top: 15),
+                paymentConfiguration:
+                    PaymentConfiguration.fromJsonString('gpay.json'),
+                onPaymentResult: onGooglePayResult,
+                paymentItems: paymentItems,
+                loadingIndicator: const Center(
+                  child: CircularProgressIndicator(),
                 ),
               ),
             ],
