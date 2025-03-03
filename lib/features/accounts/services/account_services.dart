@@ -12,7 +12,6 @@ import 'package:provider/provider.dart';
 class AccountServices {
   Future<List<Order>> fetchMyOrders({
     required BuildContext context,
-    required String category,
   }) async {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
     List<Order> orderList = [];
