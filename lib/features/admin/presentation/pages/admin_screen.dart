@@ -1,3 +1,4 @@
+import 'package:amazon_clone/features/admin/presentation/pages/analytics_screen.dart';
 import 'package:amazon_clone/features/admin/presentation/pages/orders_screen.dart';
 import 'package:amazon_clone/features/admin/presentation/pages/posts_screen.dart';
 import 'package:flutter/material.dart';
@@ -19,11 +20,7 @@ class _AdminScreenState extends State<AdminScreen> {
     //posts
     const PostsScreen(),
     //analytics
-    const Center(
-      child: Text(
-        'Admin Screen , Analytics page',
-      ),
-    ),
+    const AnalyticsScreen(),
     //orders
     const OrdersScreen(),
   ];
