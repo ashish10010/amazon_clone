@@ -8,34 +8,45 @@ class CategoryProductsChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BarChart(
-      BarChartData(
-        barGroups: salesData.map((sale) {
-          return BarChartGroupData(
-            x: salesData.indexOf(sale),
-            barRods: [
-              BarChartRodData(
-                  toY: sale.earnings.toDouble(), color: Colors.blue, width: 16),
-            ],
-          );
-        }).toList(),
-        titlesData: FlTitlesData(
-          leftTitles: AxisTitles(
-            sideTitles: SideTitles(
-              showTitles: true,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: BarChart(
+        BarChartData(
+          alignment: BarChartAlignment.spaceAround,
+          barGroups: salesData.map((sale) {
+            return BarChartGroupData(
+              x: salesData.indexOf(sale),
+              barRods: [
+                BarChartRodData(
+                    toY: sale.earnings.toDouble(),
+                    color: Colors.blue,
+                    width: 16),
+              ],
+            );
+          }).toList(),
+          titlesData: FlTitlesData(
+            leftTitles: AxisTitles(
+              sideTitles:
+                  SideTitles(showTitles: true, reservedSize: 40, interval: 700),
+            ),
+            bottomTitles: AxisTitles(
+              sideTitles: SideTitles(
+                showTitles: true,
+                getTitlesWidget: (value, meta) {
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      salesData[value.toInt()].label,
+                      style: const TextStyle(fontSize: 10),
+                    ),
+                  );
+                },
+              ),
             ),
           ),
-          bottomTitles: AxisTitles(
-            sideTitles: SideTitles(
-              showTitles: true,
-              getTitlesWidget: (value, meta) {
-                return Text(salesData[value.toInt()].label);
-              },
-            ),
-          ),
+          borderData: FlBorderData(show: false),
+          gridData: FlGridData(show: true),
         ),
-        borderData: FlBorderData(show: false),
-        gridData: FlGridData(show: false),
       ),
     );
   }
