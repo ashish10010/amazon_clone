@@ -1,3 +1,4 @@
+import 'package:amazon_clone/features/admin/presentation/pages/orders_screen.dart';
 import 'package:amazon_clone/features/admin/presentation/pages/posts_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../../constants/global_variables.dart';
@@ -24,11 +25,7 @@ class _AdminScreenState extends State<AdminScreen> {
       ),
     ),
     //orders
-    const Center(
-      child: Text(
-        'Admin Screen , Cart Page',
-      ),
-    ),
+    const OrdersScreen(),
   ];
   void updatePage(int page) {
     setState(() {
