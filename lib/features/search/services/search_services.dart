@@ -19,7 +19,7 @@ class SearchServices {
     try {
       http.Response res = await http
           .get(Uri.parse('$uri/api/products/search/$searchQuery'), headers: {
-        'Content-Type': 'application/json; charset: UTF-8',
+        'Content-Type': 'application/json; charset=UTF-8',
         'x-auth-token': userProvider.user.token,
       });
       httpErrorHandle(

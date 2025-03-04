@@ -23,7 +23,7 @@ class ProductDetailsServices {
           '$uri/api/add-to-cart',
         ),
         headers: {
-          'Content-Type': 'application/json; UTF-8',
+          'Content-Type': 'application/json; charset=UTF-8',
           'x-auth-token': userProvider.user.token,
         },
         body: jsonEncode(

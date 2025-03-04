@@ -19,7 +19,7 @@ class AddressServices {
       http.Response res = await http.post(
         Uri.parse('$uri/api/save-user-address'),
         headers: {
-          'Content-Type': 'application/json; UTF-8',
+          'Content-Type': 'application/json; charset=UTF-8',
           'x-auth-token': userProvider.user.token,
         },
         body: jsonEncode({
@@ -55,7 +55,7 @@ class AddressServices {
       http.Response res = await http.post(
         Uri.parse('$uri/api/order'),
         headers: {
-          'Content-Type': 'application/json; UTF-8',
+          'Content-Type': 'application/json; charset=UTF-8',
           'x-auth-token': userProvider.user.token,
         },
         body: jsonEncode(
