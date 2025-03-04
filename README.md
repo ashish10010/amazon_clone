@@ -1,16 +1,30 @@
-# amazon_clone
+## Running Locally
 
-A new Flutter project.
+After cloning this repository, migrate to flutter-amazon-clone-tutorial folder. Then, follow the following steps:
 
-## Getting Started
+-Create MongoDB Project & Cluster
+-Click on Connect, follow the process where you will get the uri.- Replace the MongoDB uri with yours in server/index.js.
+-Head to lib/constants/global_variables.dart file, replace with your IP Address.
+-Create Cloudinary Project, enable unsigned operation in settings.
+-Head to lib/features/admin/services/admin_services.dart, replace dm88qwpcr and cesyvywm with your Cloud Name and Upload Preset respectively.
+Then run the following commands to run your app:
 
-This project is a starting point for a Flutter application.
+## Server Side
 
-A few resources to get you started if this is your first Flutter project:
+cd server
+npm install
+npm run dev (for continuous development)
+OR
+npm start (to run script 1 time)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Client Side
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+flutter pub get
+
+flutter run
+
+
+## Tech Used
+Server: Node.js, Express, Mongoose, MongoDB, Cloudinary
+
+Client: Flutter, Provider
